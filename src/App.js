@@ -38,6 +38,10 @@ function App() {
   function gotoPrevPage() {
     setCurrentPageUrl(prevPageUrl)
   }
+  /* the point to cancel our previous request is that if the current page takes more time to load the page and in the meantime if the user send the next request , then 
+     since we dont need the data of the previous request , also race condition could occur , hence we need to cancel our previous request.
+     and we can do that in useEffect by passing the return cancel function from the cancelToken
+  */
 
 
   return (
